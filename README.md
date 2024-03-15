@@ -52,3 +52,4 @@
 
 - 오후
     - chatbot 구현
+    - Light GBM 모델 구현
