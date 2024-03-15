@@ -4,6 +4,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+
 #######################
 # Page configuration
 st.set_page_config(
@@ -58,14 +59,40 @@ def make_barchart():
     barchart = px.bar(category_counts, x=selected_categorical, y='Count')
     return barchart
 
+def make_piechart():
+    
+    piechart = px.pie(df.spec.value_counts().reset_index(), values="count", names="spec", category_orders={"index": ["a", "b", "c", "d", "e"]})
+    return piechart
+
+def make_scatter():
+    scatterplot = px.scatter(df, x="air_velocity", y="power_consumption", color="spec")
+    return scatterplot
+
+
 #######################
 # Dashboard Main Panel
-st.markdown('## FFU')
 
+col = st.columns((1.5, 4.5), gap='medium')
+
+
+with col[0]:
+    st.markdown("### Spec count")
+    piechart = make_piechart()
+    st.plotly_chart(piechart, use_container_width=True)
+
+    barchart = make_barchart()
+    st.plotly_chart(barchart, use_container_width=True)
+
+with col[1]:
+    st.markdown('#### Total Population')
+    
+    boxplot = make_boxplot()
+    st.plotly_chart(boxplot, use_container_width=True)
+
+    scatterplot = make_scatter()
+    st.plotly_chart(scatterplot, use_container_width=True)
+
+
+
+st.markdown("### FFU DATASET")
 st.dataframe(df, use_container_width=True)
-
-boxplot = make_boxplot()
-st.plotly_chart(boxplot, use_container_width=True)
-
-barchart = make_barchart()
-st.plotly_chart(barchart, use_container_width=True)
