@@ -7,7 +7,7 @@
 
 ## 사용된 데이터
 사용된 데이터는 FFU 생산 데이터입니다. FFU란 반도체, 디스플레이, 2차 전지 등 고도의 품질을 요구하는 산업분야 인프라의 핵심을 담당하는 클린룸의 구성 장비 중 하나입니다. FFU는 천장에 설치되어 공기를 필터링하고 순환시키는 역할을 합니다.
-https://github.com/iseunglee/manufacturing_data_project/blob/main/image.png
+![image](https://github.com/iseunglee/manufacturing_data_project/blob/main/image.png)
 해당 데이터는 제품의 생산이 완료된 후, 13가지 항목을 측정한 결과를 저장한 데이터입니다. 대외비로 인해 당시 사측에서 값이 수정된 데이터를 제공받았기 때문에 시각화 결과가 비교적 어색할 수 있다는 점을 미리 알립니다.
 
 ---
