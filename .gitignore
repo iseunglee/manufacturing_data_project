@@ -10,6 +10,12 @@ main.py
 # csv
 *.csv
 
+# ipynb
+*.ipynb
+*.png
+# env
+.env
+
 # Distribution / packaging
 .Python
 build/

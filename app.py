@@ -96,3 +96,30 @@ with col[1]:
 
 st.markdown("### FFU DATASET")
 st.dataframe(df, use_container_width=True)
+
+#######################
+# chatbot
+
+from dotenv import load_dotenv
+import os
+from langchain_experimental.agents import create_pandas_dataframe_agent
+from langchain_openai import ChatOpenAI
+from langchain.agents.agent_types import AgentType
+
+load_dotenv()
+API_KEY = os.getenv("OPENAI_API_KEY")
+
+user_question = st.text_input("Ask a question about your data")
+
+agent = create_pandas_dataframe_agent(
+    ChatOpenAI(temperature=0, 
+               model='gpt-3.5-turbo'),        # 모델 정의
+    df,                                    # 데이터프레임
+    verbose=False,                          # 추론과정 출력
+    agent_type=AgentType.OPENAI_FUNCTIONS, # AgentType.ZERO_SHOT_REACT_DESCRIPTION
+)
+
+if user_question is not None and user_question != "":
+    response = agent.invoke(user_question)
+
+    st.write(response)
