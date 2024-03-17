@@ -61,23 +61,24 @@ def dashboard():
     #######################
     # Dashboard Main Panel
 
-    col = st.columns((1.5, 4.5), gap='medium')
+    col = st.columns((0.3, 0.7), gap='large')
 
 
     with col[0]:
-        st.markdown("### Spec count")
+        st.markdown("### 🥧등급 비율")
         piechart = make_piechart()
         st.plotly_chart(piechart, use_container_width=True)
 
+        st.markdown("### 📊모터타입, 3상/1상, 필터타입 생산대수")
         barchart = make_barchart()
         st.plotly_chart(barchart, use_container_width=True)
 
     with col[1]:
-        st.markdown('#### Total Population')
-        
+        st.markdown('### 💢전력소비량, 노이즈, 진동 이상치')
         boxplot = make_boxplot()
         st.plotly_chart(boxplot, use_container_width=True)
 
+        st.markdown('### 💨전력소비량 대비 높은 풍량')
         scatterplot = make_scatter()
         st.plotly_chart(scatterplot, use_container_width=True)
 
