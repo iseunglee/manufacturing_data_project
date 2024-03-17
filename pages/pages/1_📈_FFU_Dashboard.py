@@ -17,26 +17,33 @@ df = get_data_from_csv()
 def dashboard():
     with st.sidebar:
         st.title(':bar_chart: FFU DASHBOARD')
-        
+        #######################
+        # barchart varialbe
         # choose spec
+        st.markdown("__막대차트 관련 변수__")
         spec_list = list(df.spec.unique())
-        selected_spec = st.selectbox('Select a spec', spec_list)
+        selected_spec = st.selectbox('Select a spec with barchart', spec_list)
         df_selected_spec = df[df.spec == selected_spec]
-
-        # choose continuous column
-        continuous_list = list(df[["power_consumption", "noise", "vibration"]].columns)
-        selected_continuous = st.selectbox('Select a continuous variable', continuous_list)
-        
         # choose categorical column
         categorical_list = list(df[["motor_type", "3PH/1PH", "filter_type"]].columns)
         selected_categorical = st.selectbox('Select a categorical varible', categorical_list)
+
+        #######################
+        # boxplot variable
+        # choose spec
+        st.markdown("__이상치 관련 변수__")
+        selected_spec_boxplot = st.multiselect('Select specs with boxplot', spec_list, default=spec_list)
+        df_selected_spec_boxplot = df[df.spec.isin(selected_spec_boxplot)]
+        # choose continuous column
+        continuous_list = list(df[["power_consumption", "noise", "vibration"]].columns)
+        selected_continuous = st.selectbox('Select a continuous variable', continuous_list)
 
     #######################
     # Plots
 
     # box plot
     def make_boxplot():
-        boxplot = px.box(df_selected_spec, x="spec", y=selected_continuous)
+        boxplot = px.box(df_selected_spec_boxplot, x="spec", y=selected_continuous)
         return boxplot
 
 

@@ -33,7 +33,7 @@ def home():
         
         # choose spec
         spec_list = list(df.spec.unique())
-        selected_spec = st.selectbox('Select a spec', spec_list)
+        selected_spec = st.multiselect('Select a spec', spec_list)
         df_selected_spec = df[df.spec == selected_spec]
 
         # choose continuous column
@@ -215,3 +215,4 @@ def model():
 
     st.subheader('Output')
     st.metric('Predicted class', predicted_grade, '')
+
