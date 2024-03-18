@@ -1,5 +1,5 @@
 #######################
-# 필요한 라이브러리
+# 대시보드 라이브러리
 import streamlit as st
 import pandas as pd
 import plotly.express as px
