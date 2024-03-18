@@ -32,6 +32,7 @@ def model():
         ml_filtertype = st.selectbox("Select a filet type", df["filter_type"].unique())
         ml_filterthickness = st.selectbox("Select a filter thickness", df["filter_thickness"].unique())
         ml_filterpressure = st.number_input("Input filter pressure")
+    
     # 모델 로드 및 학습 데이터 전처리
     def load_and_preprocess_data():
         # 학습 데이터 로드
@@ -111,8 +112,10 @@ def model():
     input_feature = pd.DataFrame([[ml_motertype, ml_watt, ml_PH, ml_esp, ml_airvelocity, ml_powerconsumption, ml_powerfactor, ml_noise, ml_filtertype, ml_filterthickness, ml_filterpressure]],
                                 columns=['motor_type', 'watt', '3PH/1PH', 'esp', 'air_velocity', 'power_consumption', 'power_factor', 'noise', 'filter_type', 'filter_thickness', 'filter_pressure'])
     st.write(input_feature)
+    
+    if st.button("Predict"):  # Predict 버튼이 눌렸을 때만 예측 수행
 
-    st.subheader('Output')
-    st.metric('Predicted class', predicted_grade, '')
+        st.subheader('Output')
+        st.metric('Predicted class', predicted_grade, '')
 
 model()
