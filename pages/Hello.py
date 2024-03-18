@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="FFU DATA DASHBOARD",
+    page_title="Hello",
     page_icon="🌐",
     layout="centered",
     initial_sidebar_state="auto",
