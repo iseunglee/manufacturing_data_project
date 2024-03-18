@@ -1,30 +1,37 @@
 import streamlit as st
 
-
 st.set_page_config(
-    page_title="Hello",
-    layout="wide",
-    page_icon="👋",
+    page_title="FFU DATA DASHBOARD",
+    page_icon="🌐",
+    layout="centered",
+    initial_sidebar_state="auto",
+    menu_items={
+        'Get Help': 'https://github.com/iseunglee',
+        'Report a bug': "https://github.com/iseunglee",
+        'About': "# This is a my first project!"
+    }
 )
 
-st.write("# Welcome to Streamlit! 👋")
-
-st.sidebar.success("Select a demo above.")
+st.sidebar.success("Page loading successful", icon="✅")
 
 st.markdown(
     """
-    Streamlit is an open-source app framework built specifically for
-    Machine Learning and Data Science projects.
-    **👈 Select a demo from the sidebar** to see some examples
-    of what Streamlit can do!
-    ### Want to learn more?
-    - Check out [streamlit.io](https://streamlit.io)
-    - Jump into our [documentation](https://docs.streamlit.io)
-    - Ask a question in our [community
-        forums](https://discuss.streamlit.io)
-    ### See more complex demos
-    - Use a neural net to [analyze the Udacity Self-driving Car Image
-        Dataset](https://github.com/streamlit/demo-self-driving)
-    - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
+# 제조 데이터 대시보드 프로젝트
+
+이 프로젝트는 제조 기업들이 가진 다양한 데이터를 활용하여 효율적인 의사 결정을 돕는 목적으로 개발되었습니다. 제조 산업은 데이터의 중요성이 더욱 커지고 있는데, 이를 보다 쉽고 효과적으로 활용하기 위해 이번 프로젝트를 준비하게 되었습니다.
+
+## 프로젝트 개요
+
+이 프로젝트는 Streamlit을 이용하여 웹 상에 대시보드를 구현하고, 제조 기업의 데이터를 다루는 다양한 기능들을 제공합니다. 대시보드를 통해 데이터를 시각화하고 분석할 수 있으며, 챗봇 기능을 통해 사용자들이 자연어로 데이터를 질문하고 답변을 받을 수 있습니다. 또한, 등급 예측 모델을 활용하여 제조 제품의 품질 등급을 예측할 수 있습니다.
+
+## 프로젝트의 장점
+
+1. **통합된 플랫폼**: 제조 기업의 데이터 시각화, 자연어 처리 기능, 예측 모델 등 다양한 기능을 하나의 플랫폼에서 제공하여 사용자 편의성을 높였습니다.
+2. **실시간 분석 및 피드백**: 대시보드를 통해 제조 공정의 실시간 데이터를 분석하고, 챗봇을 통해 빠르게 피드백을 받을 수 있어 의사 결정을 보다 신속하게 할 수 있습니다.
+3. **정확한 예측**: 등급 예측 모델을 통해 제조 제품의 품질을 예측함으로써 생산량을 최적화하고 불량률을 줄일 수 있습니다.
+
+이 프로젝트는 제조 산업의 현장에서 발생하는 다양한 문제를 해결하고, 기업의 생산성을 향상시킬 수 있는 강력한 도구로 기여할 것입니다.
+
+해당 페이지는 사용할 기업의 인삿말이나 소개 작성을 한다는 가정하에 대신 작성한 내용입니다.
 """
 )
