@@ -22,7 +22,7 @@ st.set_page_config(
 # 데이터 불러오기
 @st.cache_data
 def get_data_from_csv():
-    df = pd.read_csv("../data.csv")
+    df = pd.read_csv("./data.csv")
     return df
 
 df = get_data_from_csv()
