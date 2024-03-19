@@ -45,7 +45,7 @@ def chatbot():
         st.chat_message("user").write(prompt)
         llm = ChatOpenAI(
             temperature=0,
-            model="gpt-3.5-turbo",
+            model="gpt-4-0613",
             openai_api_key=API_KEY,
             streaming=True
         )
