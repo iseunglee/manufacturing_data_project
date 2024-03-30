@@ -50,19 +50,19 @@
 
 ### streamlit의 multipage apps
 streamlit의 multipage apps를 활용하여 웹 페이지를 구조화했습니다. 앱이 커지면 여러 페이지로 구성하는 것이 유용합니다. 이를 통해 개발자는 앱을 더 쉽게 관리하고 사용자는 더 쉽게 탐색할 수 있습니다. 또한 세션 상태를 초기화하는 코드없이도 페이지를 클릭하면 프런트엔드를 다시 로드하지 않고 세션을 저장하기 때문에 페이지간 이동이 더욱 빨라집니다.
-
+```
 📦manufacturing_data_project
  ┣ 📜main.py
  ┣ 📂pages
  ┃ ┣ 📜1_📈_FFU_Dashboard.py
  ┃ ┣ 📜2_💬_FFU_Chatbot.py
  ┃ ┗ 📜3_🤖_Prediction_Model.py
-
+```
 
 
  ### 데이터 시각화 대시보드
  <p align="center">
-  <img src=" ![streamlit-main-2024-03-29-21-03-46-ezgif com-video-to-gif-converter](https://github.com/iseunglee/manufacturing_data_project/assets/162934058/884659f5-af64-4824-8df3-f03f811155f1)">
+  <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/884659f5-af64-4824-8df3-f03f811155f1">
 </p>
 
 대시보드를 구성하는 차트는 다음과 같습니다.
@@ -76,7 +76,9 @@ plotly 라이브러리를 이용하여 인터렉티브한 시각화를 구현했
 
 
 ### 랭체인을 활용한 정형 데이터 챗봇
-![streamlit-main-2024-03-30-22-03-07-ezgif com-video-to-gif-converter](https://github.com/iseunglee/manufacturing_data_project/assets/162934058/09493cb4-89fe-4d12-9ac2-17a8c5ba9dd2)
+ <p align="center">
+  <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/09493cb4-89fe-4d12-9ac2-17a8c5ba9dd2">
+</p>
 
 랭체인을 활용하여 자연어로 데이터에 대한 인사이트를 추출하도록 했습니다. 이 기능의 장점은 프로그래밍 기술없이 사람이 사용하는 언어로 데이터에 대한 정보를 얻을 수 있다는 점입니다. 실제로 프로젝트가 완성된 후 사내 발표를 진행할 때, 파이썬이나 판다스가 익숙하지 않은 분들에 대한 접근성이 떨어진다는 의견이 있었는데, 해당 기능을 통해 프로그래밍 지식없이도 데이터를 다룰 수 있을 것으로 기대합니다.
 
