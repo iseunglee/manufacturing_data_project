@@ -61,7 +61,9 @@ streamlit의 multipage apps를 활용하여 웹 페이지를 구조화했습니�
 
 
  ### 데이터 시각화 대시보드
- ![streamlit-main-2024-03-29-21-03-46-ezgif com-video-to-gif-converter](https://github.com/iseunglee/manufacturing_data_project/assets/162934058/884659f5-af64-4824-8df3-f03f811155f1)
+ <p align="center">
+  <img src=" ![streamlit-main-2024-03-29-21-03-46-ezgif com-video-to-gif-converter](https://github.com/iseunglee/manufacturing_data_project/assets/162934058/884659f5-af64-4824-8df3-f03f811155f1)">
+</p>
 
 대시보드를 구성하는 차트는 다음과 같습니다.
 1. 생산된 장비의 등급을 알 수 있는 파이차트
