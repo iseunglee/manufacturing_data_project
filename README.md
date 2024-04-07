@@ -84,9 +84,40 @@ plotly 라이브러리를 이용하여 인터렉티브한 시각화를 구현했
 
 
 
-### 제품 등급 에측 모델
+### 제품 등급 예측 모델
  <p align="center">
   <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/7a46829b-a552-4b3c-99f1-134f7b3a6b04">
+</p>
+
+생산 데이터를 통해 학습시켜 생산된 제품의 등급을 자동으로 결정하는 분류 모델을 생성하였습니다. 최종적으로 93%의 정확도를 가지는 LightGBM 모델을 사용하였습니다. 자세한 내용은 아래를 참고해 주시길 바랍니다.
+
+1. 데이터 정의
+<p align="center">
+  <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/59ee40e3-f27a-49ca-a69f-6c2c3189ad4f">
+</p>
+
+
+2. 데이터 전처리
+<p align="center">
+  <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/e968526f-f727-4d3b-a544-ddca4601d9a8">
+</p>
+<p align="center">
+  <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/7df9729c-9dae-4cc4-9588-eea55766e01f">
+</p>
+
+
+3. Pycaret을 통한 실험 모델 선정
+<p align="center">
+  <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/eababaf3-cf29-4dc0-bb09-c96d00409294">
+</p>
+<p align="center">
+  <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/1ad9da24-f0fe-436b-bf44-324f7b172b14">
+</p>
+
+
+4. 모델링 결과
+<p align="center">
+  <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/752b0b87-112a-46e7-8451-9da8da8ef3d4">
 </p>
 
 
