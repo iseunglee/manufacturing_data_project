@@ -96,24 +96,32 @@ plotly 라이브러리를 이용하여 인터렉티브한 시각화를 구현했
   <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/59ee40e3-f27a-49ca-a69f-6c2c3189ad4f">
 </p>
 
+생산이 완료된 후 장비에 대해 테스트를 진행한 데이터입니다. 총 13가지 항목에 대한 값을 측정합니다. 측정된 결과값을 바탕으로 제품에 대한 등급을 결정합니다. a부터 e등급까지 총 5개 등급이 있습니다. a 등급이 가장 우수한 성능의 제품이며, 로우 데이터엔 등급 컬럼은 존재하지 않았지만 견적서를 바탕으로 직접 모델 학습에 사용될 데이터를 생성했습니다.
 
 2. 데이터 전처리
 <p align="center">
   <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/e968526f-f727-4d3b-a544-ddca4601d9a8">
 </p>
+우선 독립변수들 간 상관관계 분석을 실시했습니다. 차원이 커질수록 성능에 악영향을 끼치기 때문에, 해당 분석을 통해 차원을 조금이라도 줄이고자 했습니다. 시각화를 통해 vibration과 current 변수가 비교적 높은 상관관계를 띄고 있어 제외했습니다. 이는 FFU 장비에 대한 도메인 지식으로만 놓고 봐도 납득 가능한 인사이트였습니다. 제품의 등급이 높아질수록 고사양의 부품이 사용될 것이고 이는 더 많은 전류(current)와 진동수(vibration)를 유발할 것이기 때문입니다. 
 <p align="center">
   <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/7df9729c-9dae-4cc4-9588-eea55766e01f">
 </p>
-
+또한 오버샘플링을 실시했습니다. d, e와 같이 비교적 낮은 등급에 대한 오버샘플링을 실시하기 전 데이터로 학습을 시킨 후 성능을 살펴보기 위해 혼합행렬 시각화를 진행한 결과 d, e 등급을 잘 분류하지 못한 것을 볼 수 있었습니다. 낮은 등급의 제품들은 생산량이 적어 데이터가 적기 때문이라는 판단을 하였고, 해당 클래스를 오버샘플링 즉, 데이터의 개수를 증가시켜 좀 더 균등한 데이터가 될 수 있도록 했습니다.
 
 3. Pycaret을 통한 실험 모델 선정
 <p align="center">
   <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/eababaf3-cf29-4dc0-bb09-c96d00409294">
 </p>
+파이캐럿이라는 AutoML 라이브러리를 사용하여 좋은 성능을 보이는 모델을 찾고자 했습니다. 프로젝트 준비 기간은 한정되어 있고 모든 분류 모델에 대한 실험을 진행할 수 없었기에 해당 라이브러리를 통해 단 몇 줄의 코드만으로 사용한 데이터에 좋은 성능을 보이는 모델을 찾을 수 있었습니다. 정확도 상위 4개의 모델을 선정하였습니다.
 <p align="center">
   <img src="https://github.com/iseunglee/manufacturing_data_project/assets/162934058/1ad9da24-f0fe-436b-bf44-324f7b172b14">
 </p>
-
+총 4가지 분류모델(Random Forest, Light GBM, Gradient Boosting Classifier, CatBoost)에 대해 네 종류의 실험을 하여 총 16번의 실험을 진행했습니다.
+- BaseModel : 하이퍼파라미터 튜닝 X, 오버샘플링 X 데이터 사용
+- Optuna : Optuna 하이퍼파라미터 튜닝 O, 오버샘플링 X 데이터 사용
+- SMOTE : Optuna 하이퍼파라미터 튜닝 x, 오버샘플링 O 데이터 사용
+- SMOTE Optuna : Optuna 하이퍼파라미터 튜닝 O, 오버샘플링 O 데이터 사용
+결과적으로 오버 샘플링을 적용하지 않고, 하이퍼파라미터 튜닝을 진행한 Light GBM 모델이 제일 높은 정확도를 보였고, 해당 모델을 선정했습니다.
 
 4. 모델링 결과
 <p align="center">
